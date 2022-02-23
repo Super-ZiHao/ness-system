@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navigate, useRoutes } from 'react-router-dom';
+import { BrowserRouter, Navigate, useRoutes } from 'react-router-dom';
 import Login from '../views/login/login';
 import NewSandBox from '../views/sandbox/NewSandBox';
 import Home from '../views/sandbox/home/Home';
@@ -8,7 +8,7 @@ import RoleList from '../views/sandbox/right-manage/RoleList';
 import UserList from '../views/sandbox/user-manage/UserList';
 import Nopermission from '../views/sandbox/nopermission/Nopermission';
 
-const IndexRouter = () => {
+const RouterConfig = () => {
   const elment = useRoutes([
     {
       path: '/login',
@@ -46,6 +46,14 @@ const IndexRouter = () => {
     }
   ]);
   return elment;
+};
+
+const IndexRouter = () => {
+  return (
+    <BrowserRouter>
+      <RouterConfig />
+    </BrowserRouter>
+  );
 };
 
 export default IndexRouter;
