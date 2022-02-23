@@ -1,5 +1,5 @@
 const UserList = () => {
-  return <div>404 UserList</div>;
+  return <div>UserList</div>;
 };
 
 export default UserList;
