@@ -1,6 +1,5 @@
 import React from 'react';
 import IndexRouter from './router/indexRouter';
-import './App.scss';
 
 function App() {
   return (
