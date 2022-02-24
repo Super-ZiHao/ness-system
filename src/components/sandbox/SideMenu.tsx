@@ -1,21 +1,45 @@
 import { Layout, Menu } from 'antd'
-import { MenuListType } from '@/types'
+import { iconsType, MenuListType } from '@/types'
 import { useEffect, useState } from 'react'
-import axios from 'axios'
 import { useLocation, useNavigate } from 'react-router-dom'
+import { getSider } from '@/utils/api'
+import {
+  HomeOutlined,
+  UserOutlined,
+  UserSwitchOutlined,
+  SecurityScanOutlined,
+  TeamOutlined,
+  ContactsOutlined,
+  MonitorOutlined,
+  ReconciliationOutlined,
+  CloudUploadOutlined,
+} from '@ant-design/icons'
 
 const { Sider } = Layout
 const { SubMenu } = Menu
+
+const Icons: iconsType = {
+  '/home': <HomeOutlined />,
+  '/user-manage': <UserOutlined />,
+  '/user-manage/list': <UserSwitchOutlined />,
+  '/right-manage': <SecurityScanOutlined />,
+  '/right-manage/role/list': <TeamOutlined />,
+  '/right-manage/right/list': <ContactsOutlined />,
+  '/news-manage': <MonitorOutlined />,
+  '/audit-manage': <ReconciliationOutlined />,
+  '/publish-manage': <CloudUploadOutlined />,
+}
+
 const SideMenu = () => {
   const navigate = useNavigate()
   const location = useLocation()
-  const [menu, setMenu] = useState<any>()
+  const [menu, setMenu] = useState<MenuListType | []>([])
+  // 第一次进入，展开的选项
   const openKeys = [`/${location.pathname.split('/')[1]}`]
+  // 目前选中的项
   const selectKeys = [location.pathname]
   useEffect(() => {
-    axios.get('http://localhost:8000/rights?_embed=children').then((res) => {
-      setMenu(res.data)
-    })
+    getSider().then(setMenu)
   }, [])
   // 判断返回的数据 sider 数据是否能被渲染
   const chekPagePermission = (item: any) => {
@@ -33,7 +57,11 @@ const SideMenu = () => {
               chekPagePermission(item)
             ) {
               return (
-                <SubMenu key={item.key} icon={item.icon} title={item.title}>
+                <SubMenu
+                  key={item.key}
+                  title={item.title}
+                  icon={Icons[item.key]}
+                >
                   {loopSidebar(item.children)}
                 </SubMenu>
               )
@@ -42,7 +70,7 @@ const SideMenu = () => {
                 chekPagePermission(item) && (
                   <Menu.Item
                     key={item.key}
-                    icon={item.icon}
+                    icon={Icons[item.key]}
                     onClick={() => {
                       navigate(item.key)
                     }}
