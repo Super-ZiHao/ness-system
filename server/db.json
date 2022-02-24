@@ -1,19 +1,206 @@
 {
-  "posts": [
+  "rights": [
     {
       "id": 1,
-      "title": "111",
-      "author": "kerwin"
+      "grade": 1,
+      "key": "/home",
+      "pagepermisson": 1,
+      "title": "首页"
     },
     {
       "id": 2,
-      "title": "222",
-      "author": "xiaomin"
+      "grade": 1,
+      "key": "/user-manage",
+      "pagepermisson": 1,
+      "title": "用户管理"
     },
     {
-      "title": "333",
-      "author": "小王",
-      "id": 3
+      "id": 7,
+      "grade": 1,
+      "key": "/right-manage",
+      "pagepermisson": 1,
+      "title": "权限管理"
+    },
+    {
+      "id": 14,
+      "grade": 1,
+      "key": "/news-manage",
+      "pagepermisson": 1,
+      "title": "新闻管理"
+    },
+    {
+      "id": 21,
+      "grade": 1,
+      "key": "/audit-manage",
+      "pagepermisson": 1,
+      "title": "审核管理"
+    },
+    {
+      "id": 24,
+      "grade": 1,
+      "key": "/publish-manage",
+      "pagepermisson": 1,
+      "title": "发布管理"
+    }
+  ],
+  "children": [
+    {
+      "id": 3,
+      "title": "添加用户",
+      "rightId": 2,
+      "key": "/user-manage/add",
+      "grade": 2
+    },
+    {
+      "id": 4,
+      "title": "删除用户",
+      "rightId": 2,
+      "key": "/user-manage/delete",
+      "grade": 2
+    },
+    {
+      "id": 5,
+      "title": "修改用户",
+      "rightId": 2,
+      "key": "/user-manage/update",
+      "grade": 2
+    },
+    {
+      "id": 6,
+      "title": "用户列表",
+      "rightId": 2,
+      "key": "/user-manage/list",
+      "pagepermisson": 1,
+      "grade": 2
+    },
+    {
+      "id": 8,
+      "title": "角色列表",
+      "rightId": 7,
+      "key": "/right-manage/role/list",
+      "pagepermisson": 1,
+      "grade": 2
+    },
+    {
+      "id": 9,
+      "title": "权限列表",
+      "rightId": 7,
+      "key": "/right-manage/right/list",
+      "pagepermisson": 1,
+      "grade": 2
+    },
+    {
+      "id": 10,
+      "title": "修改角色",
+      "rightId": 7,
+      "key": "/user-manage/role/update",
+      "grade": 2
+    },
+    {
+      "id": 11,
+      "title": "删除角色",
+      "rightId": 7,
+      "key": "/user-manage/role/delete",
+      "grade": 2
+    },
+    {
+      "id": 12,
+      "title": "修改权限",
+      "rightId": 7,
+      "key": "/right-manage/update",
+      "grade": 2
+    },
+    {
+      "id": 13,
+      "title": "删除权限",
+      "rightId": 7,
+      "key": "/right-manage/delete",
+      "grade": 2
+    },
+    {
+      "id": 14,
+      "title": "新闻列表",
+      "rightId": 14,
+      "key": "/news-manage/list",
+      "grade": 2
+    },
+    {
+      "id": 15,
+      "title": "撰写新闻",
+      "rightId": 14,
+      "key": "/news-manage/add",
+      "pagepermisson": 1,
+      "grade": 2
+    },
+    {
+      "id": 16,
+      "title": "新闻更新",
+      "rightId": 14,
+      "key": "/news-manage/update",
+      "grade": 2
+    },
+    {
+      "id": 17,
+      "title": "新闻预览",
+      "rightId": 14,
+      "key": "/news-manage/preview",
+      "grade": 2
+    },
+    {
+      "id": 18,
+      "title": "草稿箱",
+      "rightId": 14,
+      "key": "/news-manage/delete",
+      "pagepermisson": 1,
+      "grade": 2
+    },
+    {
+      "id": 19,
+      "title": "新闻分类",
+      "rightId": 14,
+      "key": "/news-manage/classify",
+      "pagepermisson": 1,
+      "grade": 2
+    },
+    {
+      "id": 20,
+      "title": "审核新闻",
+      "rightId": 21,
+      "key": "/audit-manage/news",
+      "pagepermisson": 1,
+      "grade": 2
+    },
+    {
+      "id": 21,
+      "title": "审核列表",
+      "rightId": 21,
+      "key": "/audit-manage/list",
+      "pagepermisson": 1,
+      "grade": 2
+    },
+    {
+      "id": 22,
+      "title": "待发布",
+      "rightId": 24,
+      "key": "/publish-manage/stay",
+      "pagepermisson": 1,
+      "grade": 2
+    },
+    {
+      "id": 23,
+      "title": "已发布",
+      "rightId": 24,
+      "key": "/publish-manage/already",
+      "pagepermisson": 1,
+      "grade": 2
+    },
+    {
+      "id": 24,
+      "title": "已下载",
+      "rightId": 24,
+      "key": "/publish-manage/downloaded",
+      "pagepermisson": 1,
+      "grade": 2
     }
   ]
 }
