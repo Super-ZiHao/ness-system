@@ -1,0 +1,225 @@
+@import "./base/extend";
+
+$flexs: (
+  "flex",
+  //display：flex;
+    "inline-flex",
+  //display:inline-flex;
+    "items-start",
+  //align-items:flex-start;
+    "items-center ",
+  //align-items:center;
+    "items-end",
+  //align-items:flex-end;
+    "items-baseline",
+  //align-items:baseline;
+    "items-stretch",
+  //align-items:stretch;
+    "justify-start",
+  //justify-content:flex-start;
+    "justify-center",
+  //justify-content:center;
+    "justify-end",
+  //justify-content:flex-end;
+    "justify-between",
+  //justify-content:space-between;
+    "justify-around",
+  //justify-content:space-around;
+    "column",
+  //flex-direction:column;
+    "column-reverse",
+  //flex-direction:column-reverse;
+    "row",
+  //flex-direction:row;
+    "row-reverse",
+  //flex-direction:row-reverse;
+    "flex-wrap" //flex-wrap:wrap;
+);
+
+@each $flex in $flexs {
+  .#{$flex} {
+    @extend %#{$flex};
+  }
+}
+
+/**
+*========================================================================== 
+ * About Grid Layout here
+ * grid-template-columns / grid-template-rows
+*==========================================================================
+*/
+
+$grids: ("grid", "inline-grid");
+
+@each $grid in $grids {
+  .#{$grid} {
+    @extend %#{$grid};
+  }
+}
+
+/**
+*========================================================================== 
+ * About Position Layout Here
+ * absolute / static / relative / fixed / sticky 
+*==========================================================================
+*/
+
+$positions: ("absolute", "static", "relative", "fixed", "sticky");
+
+@each $position in $positions {
+  .#{$position} {
+    @extend %#{$position};
+  }
+}
+
+$atomics: (
+  "block",
+  //display:block;
+    "inline-block",
+  //display:inline-block;
+    "inline",
+  //display:inline;
+    "none",
+  //display:none;
+    "box",
+  //display:box;
+    "table",
+  //display:table;
+    "table-cell",
+  //display:table-cell;
+    "content",
+  "border-box",
+  "clearfix",
+  "left",
+  "right",
+  "text-center"
+);
+
+@each $atomic in $atomics {
+  .#{$atomic} {
+    @extend %#{$atomic};
+  }
+}
+
+.no-wrap {
+  white-space: nowrap;
+}
+
+.w-full {
+  width: 100%;
+}
+.h-full {
+  height: 100%;
+}
+.cp {
+  cursor: pointer;
+}
+
+.color-white {
+  color: white;
+}
+
+/**
+*========================================================================== 
+ * About Margin Padding
+ * 4, 8, 12, 16, 18, 24, 32
+*==========================================================================
+*/
+$distanceDirection: ("t", "r", "b", "l");
+$distance: (4, 8, 12, 16, 18, 20, 24, 28, 32, 40);
+
+@for $i from 1 through length($distance) {
+  .p-#{nth($distance,$i)} {
+    padding: #{nth($distance, $i)}px;
+  }
+  .m-#{nth($distance,$i)} {
+    margin: #{nth($distance, $i)}px;
+  }
+}
+
+@for $i from 1 through length($distanceDirection) {
+  @for $j from 1 through length($distance) {
+    .m#{nth($distanceDirection,$i)}-#{nth($distance,$j)} {
+      @if nth($distanceDirection, $i) == "t" {
+        margin-top: #{nth($distance, $j)}px;
+      }
+      @if nth($distanceDirection, $i) == "r" {
+        margin-right: #{nth($distance, $j)}px;
+      }
+      @if nth($distanceDirection, $i) == "b" {
+        margin-bottom: #{nth($distance, $j)}px;
+      }
+      @if nth($distanceDirection, $i) == "l" {
+        margin-left: #{nth($distance, $j)}px;
+      }
+    }
+    .p#{nth($distanceDirection,$i)}-#{nth($distance,$j)} {
+      @if nth($distanceDirection, $i) == "t" {
+        padding-top: #{nth($distance, $j)}px;
+      }
+      @if nth($distanceDirection, $i) == "r" {
+        padding-right: #{nth($distance, $j)}px;
+      }
+      @if nth($distanceDirection, $i) == "b" {
+        padding-bottom: #{nth($distance, $j)}px;
+      }
+      @if nth($distanceDirection, $i) == "l" {
+        padding-left: #{nth($distance, $j)}px;
+      }
+    }
+  }
+}
+.overflow-hidden {
+  overflow: hidden;
+}
+
+$radius: (4, 12, 16);
+@each $radius in $radius {
+  .radius-#{$radius} {
+    border-radius: #{$radius}px;
+  }
+}
+
+.flex-1 {
+  flex: 1;
+}
+/**
+*========================================================================== 
+ * About Font Size Here
+ * 24, 28, 32, 36
+*==========================================================================
+*/
+
+$fontSizes: (16, 20, 24, 28, 32, 36);
+@each $fontSize in $fontSizes {
+  .fs-#{$fontSize} {
+    font-size: #{$fontSize}px;
+  }
+}
+
+/**
+*========================================================================== 
+ * About Font Weight Here
+ * 400, 500, 600, 700, 800
+*==========================================================================
+*/
+
+$fontWeights: (400, 500, 600, 700, 800, bold);
+@each $fontWeight in $fontWeights {
+  .fw-#{$fontWeight} {
+    font-weight: #{$fontWeight};
+  }
+}
+
+/**
+*========================================================================== 
+ * About Line Height Here
+ * 40, 44, 48
+*==========================================================================
+*/
+$lineHeights: (40, 44, 48);
+@each $lineHeight in $lineHeights {
+  .lh-#{$lineHeight} {
+    line-height: #{$lineHeight}px;
+  }
+}

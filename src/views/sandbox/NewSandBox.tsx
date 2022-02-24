@@ -7,7 +7,7 @@ import TopHeader from '../../components/sandbox/TopHeader'
 const NewSandBox = () => {
   const { Content } = Layout
   return (
-    <Layout>
+    <Layout className="layout">
       <SideMenu></SideMenu>
       <Layout>
         <TopHeader></TopHeader>

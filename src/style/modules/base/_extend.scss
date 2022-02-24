@@ -1,0 +1,159 @@
+%flex {
+  display: flex;
+}
+
+%inline-flex {
+  display: inline-flex;
+}
+
+%items-start {
+  align-items: flex-start;
+}
+
+%items-center {
+  align-items: center;
+}
+
+%items-end {
+  align-items: flex-end;
+}
+
+%justify-between {
+  justify-content: space-between;
+}
+
+%justify-around {
+  justify-content: space-around;
+}
+
+%justify-start {
+  justify-content: flex-start;
+}
+
+%justify-end {
+  justify-content: flex-end;
+}
+
+%justify-center {
+  justify-content: center;
+}
+
+%items-baseline {
+  align-items: baseline;
+}
+
+%items-stretch {
+  align-items: stretch;
+}
+
+
+%column {
+  flex-direction: column;
+}
+
+%column-reverse {
+  flex-direction: column-reverse;
+}
+
+%row {
+  flex-direction: row;
+}
+
+%row-reverse {
+  flex-direction: row-reverse;
+}
+
+%flex-wrap {
+  flex-wrap: wrap;
+}
+
+%grid {
+  display: grid;
+}
+
+%inline-grid {
+  display: inline-grid;
+}
+
+%block {
+  display: block;
+}
+
+%inline-block {
+  display: inline-block;
+}
+
+%inline {
+  display: inline;
+}
+
+%none {
+  display: none;
+}
+
+%box {
+  display: -webkit-box;
+  display: box;
+}
+
+%table {
+  display: table;
+}
+
+%table-cell {
+  display: table-cell;
+}
+
+%absolute {
+  position: absolute;
+}
+
+%static {
+  position: static;
+}
+
+%relative {
+  position: relative;
+}
+
+%fixed {
+  position: fixed;
+}
+
+%sticky {
+  position: -webkit-sticky;
+  position: sticky;
+}
+
+%content {
+  content: "";
+  @extend %block;
+}
+
+%clearfix {
+  clear: both;
+  height: auto;
+  &:after,
+  &:before {
+    @extend %content;
+    clear: both;
+    overflow: hidden;
+  }
+}
+
+%left {
+  float: left;
+}
+
+%right {
+  float: right;
+}
+
+%border-box {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+%text-center {
+  text-align: center;
+}
