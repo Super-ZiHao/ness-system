@@ -16,7 +16,7 @@ import { deleteAttribute } from '@/utils/function'
 import { MenuListType, MenuType } from '@/types'
 
 const RightList = () => {
-  const [dataSource, setDataSource] = useState<MenuListType | []>([])
+  const [MenuList, setMenuList] = useState<MenuListType | []>([])
   // table 配置
   const columns = [
     {
@@ -85,14 +85,14 @@ const RightList = () => {
   const deleteMethod = (data: MenuType) => {
     if (data.grade === 1) {
       // 删除前端数据
-      setDataSource(dataSource?.filter((item) => item.id !== data.id))
+      setMenuList(MenuList?.filter((item) => item.id !== data.id))
       // 请求删除后端数据
       deleteSider(data.id)
     } else if (data.grade === 2) {
       // 删除前端数据
-      const list = dataSource?.filter((item) => item.id === data.rightId)
+      const list = MenuList?.filter((item) => item.id === data.rightId)
       list[0].children = list[0].children?.filter((item) => item.id !== data.id)
-      setDataSource([...dataSource])
+      setMenuList([...MenuList])
       // 请求删除后端数据
       deleteSiderChildren(data.id)
     }
@@ -100,7 +100,7 @@ const RightList = () => {
   // 更改状态
   const switchMethod = (data: MenuType) => {
     data.pagepermisson = !data.pagepermisson
-    setDataSource([...dataSource])
+    setMenuList([...MenuList])
     if (data.grade === 1) {
       patchSider(data.id, {
         pagepermisson: data.pagepermisson,
@@ -114,7 +114,7 @@ const RightList = () => {
 
   useEffect(() => {
     getSider().then((res: MenuListType) => {
-      setDataSource(
+      setMenuList(
         deleteAttribute({
           key: 'children',
           data: res,
@@ -126,7 +126,7 @@ const RightList = () => {
   return (
     <div>
       <Table
-        dataSource={dataSource}
+        dataSource={MenuList}
         columns={columns}
         pagination={{ pageSize: 4 }}
       />
