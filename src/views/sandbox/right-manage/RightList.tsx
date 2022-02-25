@@ -71,6 +71,17 @@ const RightList = () => {
       },
     },
   ]
+  
+  useEffect(() => {
+    getSider().then((res: MenuListType) => {
+      setMenuList(
+        deleteAttribute({
+          key: 'children',
+          data: res,
+        })
+      )
+    })
+  }, [])
   // 删除提示
   const confirmDelete = (data: MenuType) => {
     Modal.confirm({
@@ -112,16 +123,7 @@ const RightList = () => {
     }
   }
 
-  useEffect(() => {
-    getSider().then((res: MenuListType) => {
-      setMenuList(
-        deleteAttribute({
-          key: 'children',
-          data: res,
-        })
-      )
-    })
-  }, [])
+  
 
   return (
     <div>
