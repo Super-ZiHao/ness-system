@@ -12,3 +12,10 @@ export type MenuListType = MenuType[]
 export interface iconsType {
   [a: string]: any
 }
+
+export interface RolesType {
+  id: number
+  right: string[]
+  roleName: string
+  roleType: number
+}
