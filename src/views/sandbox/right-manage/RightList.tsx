@@ -1,41 +1,32 @@
+import { getRights } from '@/utils/api'
 import { Table } from 'antd'
-import { useState } from 'react'
-
-const dataSource = [
-  {
-    key: '1',
-    name: '胡彦斌',
-    age: 32,
-    address: '西湖区湖底公园1号',
-  },
-  {
-    key: '2',
-    name: '胡彦祖',
-    age: 42,
-    address: '西湖区湖底公园1号',
-  },
-]
+import { useEffect, useState } from 'react'
+import { MenuListType } from '@/types'
 
 const columns = [
   {
-    title: '姓名',
-    dataIndex: 'name',
-    key: 'name',
+    title: 'ID',
+    dataIndex: 'id',
   },
   {
-    title: '年龄',
-    dataIndex: 'age',
-    key: 'age',
+    title: '权限名称',
+    dataIndex: 'title',
   },
   {
-    title: '住址',
-    dataIndex: 'address',
-    key: 'address',
+    title: '权限路径',
+    dataIndex: 'key',
+  },
+  {
+    title: '操作',
+    dataIndex: 'pagepermisson',
   },
 ]
 
 const RightList = () => {
-  const [dataSource, setDataSource] = useState()
+  const [dataSource, setDataSource] = useState<MenuListType>()
+  useEffect(() => {
+    getRights().then(setDataSource)
+  }, [])
   return (
     <div>
       <Table dataSource={dataSource} columns={columns} />
