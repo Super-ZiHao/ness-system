@@ -1,9 +1,10 @@
 export interface MenuType {
   id: number
+  rightId?: number
   grade: number
   key: string
   title: string
-  pagepermisson?: number
+  pagepermisson?: boolean
   children?: MenuListType
 }
 export type MenuListType = MenuType[]

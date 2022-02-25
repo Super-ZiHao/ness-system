@@ -41,10 +41,6 @@ const SideMenu = () => {
   useEffect(() => {
     getSider().then(setMenu)
   }, [])
-  // 判断返回的数据 sider 数据是否能被渲染
-  const chekPagePermission = (item: any) => {
-    return item.pagepermisson === 1
-  }
   // 循环生成 侧边栏列表
   const loopSidebar = (list: MenuListType) => {
     return (
@@ -54,7 +50,7 @@ const SideMenu = () => {
             if (
               item.children &&
               item.children.length > 0 &&
-              chekPagePermission(item)
+              item.pagepermisson
             ) {
               return (
                 <SubMenu
@@ -67,7 +63,7 @@ const SideMenu = () => {
               )
             } else {
               return (
-                chekPagePermission(item) && (
+                item.pagepermisson && (
                   <Menu.Item
                     key={item.key}
                     icon={Icons[item.key]}

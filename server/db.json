@@ -4,42 +4,42 @@
       "id": 1,
       "grade": 1,
       "key": "/home",
-      "pagepermisson": 1,
+      "pagepermisson": true,
       "title": "首页"
     },
     {
       "id": 2,
       "grade": 1,
       "key": "/user-manage",
-      "pagepermisson": 1,
+      "pagepermisson": true,
       "title": "用户管理"
     },
     {
       "id": 7,
       "grade": 1,
       "key": "/right-manage",
-      "pagepermisson": 1,
+      "pagepermisson": true,
       "title": "权限管理"
     },
     {
       "id": 14,
       "grade": 1,
       "key": "/news-manage",
-      "pagepermisson": 1,
+      "pagepermisson": true,
       "title": "新闻管理"
     },
     {
       "id": 21,
       "grade": 1,
       "key": "/audit-manage",
-      "pagepermisson": 1,
+      "pagepermisson": true,
       "title": "审核管理"
     },
     {
       "id": 24,
       "grade": 1,
       "key": "/publish-manage",
-      "pagepermisson": 1,
+      "pagepermisson": true,
       "title": "发布管理"
     }
   ],
@@ -70,7 +70,7 @@
       "title": "用户列表",
       "rightId": 2,
       "key": "/user-manage/list",
-      "pagepermisson": 1,
+      "pagepermisson": true,
       "grade": 2
     },
     {
@@ -78,7 +78,7 @@
       "title": "角色列表",
       "rightId": 7,
       "key": "/right-manage/role/list",
-      "pagepermisson": 1,
+      "pagepermisson": true,
       "grade": 2
     },
     {
@@ -86,7 +86,7 @@
       "title": "权限列表",
       "rightId": 7,
       "key": "/right-manage/right/list",
-      "pagepermisson": 1,
+      "pagepermisson": true,
       "grade": 2
     },
     {
@@ -129,7 +129,7 @@
       "title": "撰写新闻",
       "rightId": 14,
       "key": "/news-manage/add",
-      "pagepermisson": 1,
+      "pagepermisson": true,
       "grade": 2
     },
     {
@@ -151,7 +151,7 @@
       "title": "草稿箱",
       "rightId": 14,
       "key": "/news-manage/delete",
-      "pagepermisson": 1,
+      "pagepermisson": true,
       "grade": 2
     },
     {
@@ -159,7 +159,7 @@
       "title": "新闻分类",
       "rightId": 14,
       "key": "/news-manage/classify",
-      "pagepermisson": 1,
+      "pagepermisson": true,
       "grade": 2
     },
     {
@@ -167,7 +167,7 @@
       "title": "审核新闻",
       "rightId": 21,
       "key": "/audit-manage/news",
-      "pagepermisson": 1,
+      "pagepermisson": true,
       "grade": 2
     },
     {
@@ -175,7 +175,7 @@
       "title": "审核列表",
       "rightId": 21,
       "key": "/audit-manage/list",
-      "pagepermisson": 1,
+      "pagepermisson": true,
       "grade": 2
     },
     {
@@ -183,7 +183,7 @@
       "title": "待发布",
       "rightId": 24,
       "key": "/publish-manage/stay",
-      "pagepermisson": 1,
+      "pagepermisson": true,
       "grade": 2
     },
     {
@@ -191,7 +191,7 @@
       "title": "已发布",
       "rightId": 24,
       "key": "/publish-manage/already",
-      "pagepermisson": 1,
+      "pagepermisson": true,
       "grade": 2
     },
     {
@@ -199,7 +199,7 @@
       "title": "已下载",
       "rightId": 24,
       "key": "/publish-manage/downloaded",
-      "pagepermisson": 1,
+      "pagepermisson": true,
       "grade": 2
     }
   ]
