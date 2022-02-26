@@ -62,7 +62,9 @@ const RoleList = () => {
   }
   // 删除函数
   const deleteMethod = (data: RolesType) => {
+    // 实现前端页面显示删除
     setDataSource(dataSource.filter((item) => item.id !== data.id))
+    // 调用接口实现后端数据库删除
     deleteRoles(data.id)
   }
   return (

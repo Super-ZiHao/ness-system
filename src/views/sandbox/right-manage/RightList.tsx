@@ -85,8 +85,10 @@ const RightList = () => {
   // 删除提示
   const confirmDelete = (data: MenuType) => {
     Modal.confirm({
-      title: '你确定要删除？',
+      title: '你确定要删除吗？( 此操作不可逆转 )',
       icon: <ExclamationCircleOutlined />,
+      okText: '确定',
+      cancelText: '取消',
       onOk() {
         deleteMethod(data)
       },
@@ -95,16 +97,16 @@ const RightList = () => {
   // 删除函数
   const deleteMethod = (data: MenuType) => {
     if (data.grade === 1) {
-      // 删除前端数据
+     // 实现前端页面显示删除
       setMenuList(MenuList?.filter((item) => item.id !== data.id))
-      // 请求删除后端数据
+      // 调用接口实现后端数据库删除
       deleteSider(data.id)
     } else if (data.grade === 2) {
-      // 删除前端数据
+     // 实现前端页面显示删除
       const list = MenuList?.filter((item) => item.id === data.rightId)
       list[0].children = list[0].children?.filter((item) => item.id !== data.id)
       setMenuList([...MenuList])
-      // 请求删除后端数据
+      // 调用接口实现后端数据库删除
       deleteSiderChildren(data.id)
     }
   }
