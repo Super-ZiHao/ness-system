@@ -8,32 +8,39 @@ interface PatchMenuType {
   title?: string
   pagepermisson?: boolean
 }
-// 获取数据（ 包括子集 ）
+
+/**
+ *  rights
+ */
 export const getMenu: () => any = () => {
   return request.get('rights?_embed=children')
 }
-// 删除数据
 export const deleteSider: (id: number) => any = (id) => {
   return request.delete(`rights/${id}`)
 }
-// 删除子集数据
-export const deleteSiderChildren: (id: number) => any = (id) => {
-  return request.delete(`children/${id}`)
-}
-// 更改权限
 export const patchSider: (id: number, data: PatchMenuType) => any = (
   id,
   data
 ) => {
   return request.patch(`rights/${id}`, data)
 }
-// 更改子集权限
+
+/**
+ *  children
+ */
+export const deleteSiderChildren: (id: number) => any = (id) => {
+  return request.delete(`children/${id}`)
+}
 export const patchSiderChildren: (id: number, data: PatchMenuType) => any = (
   id,
   data
 ) => {
   return request.patch(`children/${id}`, data)
 }
+
+/**
+ *  Roles
+ */
 export const getRoles: () => any = () => {
   return request.get('roles')
 }
@@ -48,4 +55,11 @@ export const pathRoles: (id: number, currentRights: string[]) => any = (
   return request.patch(`roles/${id}`, {
     rights: currentRights,
   })
+}
+
+/**
+ *  Users
+ */
+export const getUsers: () => any = () => {
+  return request.get('users')
 }

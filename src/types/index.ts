@@ -19,3 +19,13 @@ export interface RolesType {
   roleName: string
   roleType: number
 }
+
+export interface UsersType {
+  id: number
+  roleId: number
+  username: string
+  password: string
+  region: string
+  default: boolean
+  roleState: boolean
+}
