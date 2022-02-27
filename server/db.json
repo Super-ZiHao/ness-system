@@ -209,7 +209,6 @@
       "roleName": "超级管理员",
       "roleType": 1,
       "rights": [
-        "/user-manage",
         "/user-manage/add",
         "/user-manage/delete",
         "/user-manage/update",
@@ -233,7 +232,8 @@
         "/publish-manage/published",
         "/publish-manage/sunset",
         "/right-manage",
-        "/home"
+        "/home",
+        "/user-manage"
       ]
     },
     {
@@ -298,7 +298,7 @@
       "id": 2,
       "username": "金",
       "password": "123",
-      "roleState": true,
+      "roleState": false,
       "default": false,
       "region": "亚洲",
       "roleId": 2

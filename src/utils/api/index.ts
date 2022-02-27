@@ -1,13 +1,5 @@
 import request from './request'
-
-interface PatchMenuType {
-  id?: number
-  rightId?: number
-  grade?: number
-  key?: string
-  title?: string
-  pagepermisson?: boolean
-}
+import { MenuType, UsersType } from '@/types'
 
 /**
  *  rights
@@ -18,7 +10,7 @@ export const getMenu: () => any = () => {
 export const deleteSider: (id: number) => any = (id) => {
   return request.delete(`rights/${id}`)
 }
-export const patchSider: (id: number, data: PatchMenuType) => any = (
+export const patchSider: (id: number, data: Partial<MenuType>) => any = (
   id,
   data
 ) => {
@@ -31,10 +23,10 @@ export const patchSider: (id: number, data: PatchMenuType) => any = (
 export const deleteSiderChildren: (id: number) => any = (id) => {
   return request.delete(`children/${id}`)
 }
-export const patchSiderChildren: (id: number, data: PatchMenuType) => any = (
-  id,
-  data
-) => {
+export const patchSiderChildren: (
+  id: number,
+  data: Partial<MenuType>
+) => any = (id, data) => {
   return request.patch(`children/${id}`, data)
 }
 
@@ -62,4 +54,10 @@ export const pathRoles: (id: number, currentRights: string[]) => any = (
  */
 export const getUsers: () => any = () => {
   return request.get('users')
+}
+export const patchUsers: (id: number, data: Partial<UsersType>) => any = (
+  id,
+  data
+) => {
+  return request.patch(`users/${id}`, data)
 }

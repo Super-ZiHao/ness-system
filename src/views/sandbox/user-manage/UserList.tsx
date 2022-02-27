@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react'
 import { Button, Switch, Table } from 'antd'
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons'
-import { getUsers } from '@/utils/api'
+import { getUsers, patchUsers } from '@/utils/api'
 import { UsersType } from '@/types'
 const UserList = () => {
   const [users, setUsers] = useState<UsersType[]>([])
-  console.log(users)
   const columns = [
     {
       title: '区域',
@@ -26,7 +25,15 @@ const UserList = () => {
     {
       title: '用户状态',
       render(data: UsersType) {
-        return <Switch checked={data.roleState} disabled={data.default} />
+        return (
+          <Switch
+            onClick={() => {
+              handleChecked(data)
+            }}
+            checked={data.roleState}
+            disabled={data.default}
+          />
+        )
       },
     },
     {
@@ -69,10 +76,32 @@ const UserList = () => {
         return '普通员工'
     }
   }
+
+  const handleChecked = (data: UsersType) => {
+    setUsers(
+      users.map((item) => {
+        if (item.id === data.id) {
+          return {
+            ...item,
+            roleState: !item.roleState,
+          }
+        }
+        return item
+      })
+    )
+    patchUsers(data.id, {
+      roleState: !data.roleState,
+    })
+  }
   return (
     <>
       <Button type="primary">添加用户</Button>
-      <Table columns={columns} dataSource={users} />
+      <Table
+        columns={columns}
+        dataSource={users}
+        pagination={{ pageSize: 4 }}
+        rowKey={(item) => item.id}
+      />
     </>
   )
 }
