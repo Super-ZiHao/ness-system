@@ -2,7 +2,7 @@ import { Layout, Menu } from 'antd'
 import { iconsType, MenuListType } from '@/types'
 import { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { getSider } from '@/utils/api'
+import { getMenu } from '@/utils/api'
 import {
   HomeOutlined,
   UserOutlined,
@@ -39,7 +39,7 @@ const SideMenu = () => {
   // 目前选中的项
   const selectKeys = [location.pathname]
   useEffect(() => {
-    getSider().then(setMenu)
+    getMenu().then(setMenu)
   }, [])
   // 循环生成 侧边栏列表
   const loopSidebar = (list: MenuListType) => {

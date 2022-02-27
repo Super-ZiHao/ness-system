@@ -8,7 +8,7 @@ import {
 import {
   deleteSider,
   deleteSiderChildren,
-  getSider,
+  getMenu,
   patchSider,
   patchSiderChildren,
 } from '@/utils/api'
@@ -73,7 +73,7 @@ const RightList = () => {
   ]
   
   useEffect(() => {
-    getSider().then((res: MenuListType) => {
+    getMenu().then((res: MenuListType) => {
       setMenuList(
         deleteAttribute({
           key: 'children',

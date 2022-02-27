@@ -15,7 +15,7 @@ export interface iconsType {
 
 export interface RolesType {
   id: number
-  right: string[]
+  rights: string[]
   roleName: string
   roleType: number
 }

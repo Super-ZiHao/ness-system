@@ -1,15 +1,25 @@
 import { useEffect, useState } from 'react'
-import { Table, Button, Modal } from 'antd'
+import { Table, Button, Modal, Tree } from 'antd'
 import {
   DeleteOutlined,
   EditOutlined,
   ExclamationCircleOutlined,
 } from '@ant-design/icons'
-import { deleteRoles, getRoles } from '@/utils/api'
-import { RolesType } from '@/types'
+import { deleteRoles, getRoles, getMenu, pathRoles } from '@/utils/api'
+import { RolesType, MenuListType } from '@/types'
 
 const RoleList = () => {
-  const [dataSource, setDataSource] = useState<RolesType[] | []>([])
+  // Table 列表
+  const [dataSource, setDataSource] = useState<RolesType[]>([])
+  // 侧边栏
+  const [menu, setMenu] = useState<MenuListType>()
+  console.log(menu)
+  // 选中 path
+  const [currentRights, setCurrentRights] = useState<string[]>([])
+  // 选中 Id
+  const [currentId, setCurrentId] = useState<number>(-1)
+  // 弹窗显示
+  const [modalShow, setModalShow] = useState<boolean>(false)
   const columns = [
     {
       title: 'ID',
@@ -38,6 +48,11 @@ const RoleList = () => {
               type="primary"
               shape="circle"
               icon={<EditOutlined />}
+              onClick={() => {
+                setModalShow(true)
+                setCurrentRights(data.rights)
+                setCurrentId(data.id)
+              }}
             />
           </>
         )
@@ -46,6 +61,7 @@ const RoleList = () => {
   ]
   useEffect(() => {
     getRoles().then(setDataSource)
+    getMenu().then(setMenu)
   }, [])
   // 删除弹窗
   const confirmDelete = (data: RolesType) => {
@@ -55,7 +71,6 @@ const RoleList = () => {
       okText: '确定',
       cancelText: '取消',
       onOk() {
-        // 确认删除并执行
         deleteMethod(data)
       },
     })
@@ -63,10 +78,30 @@ const RoleList = () => {
   // 删除函数
   const deleteMethod = (data: RolesType) => {
     // 实现前端页面显示删除
-    setDataSource(dataSource.filter((item) => item.id !== data.id))
+    setDataSource(dataSource?.filter((item) => item.id !== data.id))
     // 调用接口实现后端数据库删除
     deleteRoles(data.id)
   }
+  // 编辑确定事件
+  const handleOk = () => {
+    setDataSource(
+      dataSource?.map((item) => {
+        if (item.id === currentId) {
+          return {
+            ...item,
+            rights: currentRights,
+          }
+        }
+        return item
+      })
+    )
+    pathRoles(currentId, currentRights)
+    setModalShow(false)
+  }
+  const onCheck = (checkKeys: any) => {
+    setCurrentRights(checkKeys.checked)
+  }
+
   return (
     <div>
       <Table
@@ -74,6 +109,20 @@ const RoleList = () => {
         columns={columns}
         rowKey={(item) => item.id}
       />
+      <Modal
+        title="弹出框"
+        visible={modalShow}
+        onOk={handleOk}
+        onCancel={() => setModalShow(false)}
+      >
+        <Tree
+          checkable
+          checkStrictly
+          treeData={menu}
+          checkedKeys={currentRights}
+          onCheck={onCheck}
+        />
+      </Modal>
     </div>
   )
 }
