@@ -1,41 +1,32 @@
-@import "./base/extend";
+@import './base/extend';
 
+/**
+*========================================================================== 
+ * 关于 ———— flex 布局
+ * items / justify / column / row /...
+*==========================================================================
+*/
 $flexs: (
-  "flex",
-  //display：flex;
-    "inline-flex",
-  //display:inline-flex;
-    "items-start",
-  //align-items:flex-start;
-    "items-center ",
-  //align-items:center;
-    "items-end",
-  //align-items:flex-end;
-    "items-baseline",
-  //align-items:baseline;
-    "items-stretch",
-  //align-items:stretch;
-    "justify-start",
-  //justify-content:flex-start;
-    "justify-center",
-  //justify-content:center;
-    "justify-end",
-  //justify-content:flex-end;
-    "justify-between",
-  //justify-content:space-between;
-    "justify-around",
-  //justify-content:space-around;
-    "column",
-  //flex-direction:column;
-    "column-reverse",
-  //flex-direction:column-reverse;
-    "row",
-  //flex-direction:row;
-    "row-reverse",
-  //flex-direction:row-reverse;
-    "flex-wrap" //flex-wrap:wrap;
+  'flex',
+  'inline-flex',
+  'items-start',
+  'items-center ',
+  'items-end',
+  'items-baseline',
+  'items-stretch',
+  'justify-start',
+  'justify-center',
+  'justify-end',
+  'justify-between',
+  'justify-around',
+  'justify-evenly',
+  'column',
+  'column-reverse',
+  'row',
+  'row-reverse',
+  'flex-wrap',
+  'flex-1'
 );
-
 @each $flex in $flexs {
   .#{$flex} {
     @extend %#{$flex};
@@ -44,13 +35,11 @@ $flexs: (
 
 /**
 *========================================================================== 
- * About Grid Layout here
+ * 关于 ———— grid 布局
  * grid-template-columns / grid-template-rows
 *==========================================================================
 */
-
-$grids: ("grid", "inline-grid");
-
+$grids: ('grid', 'inline-grid');
 @each $grid in $grids {
   .#{$grid} {
     @extend %#{$grid};
@@ -59,120 +48,81 @@ $grids: ("grid", "inline-grid");
 
 /**
 *========================================================================== 
- * About Position Layout Here
+ * 关于 ———— Position 定位
  * absolute / static / relative / fixed / sticky 
 *==========================================================================
 */
-
-$positions: ("absolute", "static", "relative", "fixed", "sticky");
-
+$positions: ('absolute', 'static', 'relative', 'fixed', 'sticky');
 @each $position in $positions {
   .#{$position} {
     @extend %#{$position};
   }
 }
 
+/**
+*========================================================================== 
+ * 关于 ———— 常用的样式
+*==========================================================================
+*/
 $atomics: (
-  "block",
-  //display:block;
-    "inline-block",
-  //display:inline-block;
-    "inline",
-  //display:inline;
-    "none",
-  //display:none;
-    "box",
-  //display:box;
-    "table",
-  //display:table;
-    "table-cell",
-  //display:table-cell;
-    "content",
-  "border-box",
-  "clearfix",
-  "left",
-  "right",
-  "text-center"
+  'block',
+  'inline-block',
+  'inline',
+  'none',
+  'box',
+  'table',
+  'table-cell',
+  'box-sizing',
+  'left',
+  'right',
+  'clearfloat',
+  'overflow-hidden',
+  'cp',
+  'h-full',
+  'w-full',
+  'vh-full',
+  'vw-full',
+  'text-center',
+  'no-wrap',
+  'color-white',
 );
-
 @each $atomic in $atomics {
   .#{$atomic} {
     @extend %#{$atomic};
   }
 }
 
-.no-wrap {
-  white-space: nowrap;
-}
-
-.w-full {
-  width: 100%;
-}
-.h-full {
-  height: 100%;
-}
-.cp {
-  cursor: pointer;
-}
-
-.color-white {
-  color: white;
+/**
+*========================================================================== 
+ * 关于 Margin 和 Padding
+ * 4, 8, 12, 16, 18, 24, 32
+*==========================================================================
+*/
+$distanceDirection: (
+  '': '',
+  't': '-top',
+  'r': '-right',
+  'b': 'bottom',
+  'l': 'left',
+);
+$distance: (4, 8, 12, 16, 18, 24, 32);
+@each $key, $value in $distanceDirection {
+  @each $number in $distance {
+    .m#{$key}-#{$number} {
+      margin#{$value}: $number + px;
+    }
+    .p#{$key}-#{$number} {
+      padding#{$value}: $number + px;
+    }
+  }
 }
 
 /**
 *========================================================================== 
- * About Margin Padding
- * 4, 8, 12, 16, 18, 24, 32
+ * 关于 ———— 圆角 Border-radius
+ * 4, 12, 16
 *==========================================================================
 */
-$distanceDirection: ("t", "r", "b", "l");
-$distance: (4, 8, 12, 16, 18, 20, 24, 28, 32, 40);
-
-@for $i from 1 through length($distance) {
-  .p-#{nth($distance,$i)} {
-    padding: #{nth($distance, $i)}px;
-  }
-  .m-#{nth($distance,$i)} {
-    margin: #{nth($distance, $i)}px;
-  }
-}
-
-@for $i from 1 through length($distanceDirection) {
-  @for $j from 1 through length($distance) {
-    .m#{nth($distanceDirection,$i)}-#{nth($distance,$j)} {
-      @if nth($distanceDirection, $i) == "t" {
-        margin-top: #{nth($distance, $j)}px;
-      }
-      @if nth($distanceDirection, $i) == "r" {
-        margin-right: #{nth($distance, $j)}px;
-      }
-      @if nth($distanceDirection, $i) == "b" {
-        margin-bottom: #{nth($distance, $j)}px;
-      }
-      @if nth($distanceDirection, $i) == "l" {
-        margin-left: #{nth($distance, $j)}px;
-      }
-    }
-    .p#{nth($distanceDirection,$i)}-#{nth($distance,$j)} {
-      @if nth($distanceDirection, $i) == "t" {
-        padding-top: #{nth($distance, $j)}px;
-      }
-      @if nth($distanceDirection, $i) == "r" {
-        padding-right: #{nth($distance, $j)}px;
-      }
-      @if nth($distanceDirection, $i) == "b" {
-        padding-bottom: #{nth($distance, $j)}px;
-      }
-      @if nth($distanceDirection, $i) == "l" {
-        padding-left: #{nth($distance, $j)}px;
-      }
-    }
-  }
-}
-.overflow-hidden {
-  overflow: hidden;
-}
-
 $radius: (4, 12, 16);
 @each $radius in $radius {
   .radius-#{$radius} {
@@ -180,16 +130,12 @@ $radius: (4, 12, 16);
   }
 }
 
-.flex-1 {
-  flex: 1;
-}
 /**
 *========================================================================== 
- * About Font Size Here
+ * 关于 ———— 字体大小 Font-size
  * 24, 28, 32, 36
 *==========================================================================
 */
-
 $fontSizes: (16, 20, 24, 28, 32, 36);
 @each $fontSize in $fontSizes {
   .fs-#{$fontSize} {
@@ -199,11 +145,10 @@ $fontSizes: (16, 20, 24, 28, 32, 36);
 
 /**
 *========================================================================== 
- * About Font Weight Here
+ * 关于 ———— 字重 Font-weight
  * 400, 500, 600, 700, 800
 *==========================================================================
 */
-
 $fontWeights: (400, 500, 600, 700, 800, bold);
 @each $fontWeight in $fontWeights {
   .fw-#{$fontWeight} {
@@ -213,7 +158,7 @@ $fontWeights: (400, 500, 600, 700, 800, bold);
 
 /**
 *========================================================================== 
- * About Line Height Here
+ * 关于 ———— 行高 Line-height
  * 40, 44, 48
 *==========================================================================
 */

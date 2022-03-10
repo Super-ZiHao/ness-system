@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Button, Switch, Table } from 'antd'
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons'
-import { getUsers, patchUsers } from '@/utils/api'
+import { delUsers, getUsers, patchUsers } from '@/utils/api'
 import { UsersType } from '@/types'
 const UserList = () => {
   const [users, setUsers] = useState<UsersType[]>([])
@@ -46,6 +46,7 @@ const UserList = () => {
               shape="circle"
               danger
               icon={<DeleteOutlined />}
+              onClick={() => onDelete(data.id)}
             />
             <Button
               className="ml-16"
@@ -92,6 +93,10 @@ const UserList = () => {
     patchUsers(data.id, {
       roleState: !data.roleState,
     })
+  }
+
+  const onDelete = (id: number) => {
+    delUsers(id)
   }
   return (
     <>

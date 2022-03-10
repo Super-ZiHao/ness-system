@@ -298,7 +298,7 @@
       "id": 2,
       "username": "金",
       "password": "123",
-      "roleState": false,
+      "roleState": true,
       "default": false,
       "region": "亚洲",
       "roleId": 2

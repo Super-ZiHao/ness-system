@@ -61,3 +61,6 @@ export const patchUsers: (id: number, data: Partial<UsersType>) => any = (
 ) => {
   return request.patch(`users/${id}`, data)
 }
+export const delUsers: (id: number) => any = (id) => {
+  return request.delete(`users/${id}`)
+}
