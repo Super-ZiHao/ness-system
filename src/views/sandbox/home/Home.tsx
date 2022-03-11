@@ -12,6 +12,7 @@ const Home = () => {
   return (
     <div>
       <Button onClick={getAxios}>Axios</Button>
+      <div className='sk'></div>
     </div>
   )
 }

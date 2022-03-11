@@ -85,6 +85,9 @@ $atomics: (
   'text-center',
   'no-wrap',
   'color-white',
+  'color-black',
+  'bg-white',
+  'bg-black',
 );
 @each $atomic in $atomics {
   .#{$atomic} {
