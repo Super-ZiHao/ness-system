@@ -49,7 +49,19 @@ $grids: (
   'align-around',
   'justify-items-start',
   'justify-items-center',
-  'justify-items-end'
+  'justify-items-end',
+  'justify-items-stretch',
+  'justify-self-start',
+  'justify-self-center',
+  'justify-self-end',
+  'justify-self-stretch',
+  'align-self-start',
+  'align-self-center',
+  'align-self-end',
+  'align-self-stretch',
+  'place-content-center',
+  'plac-items-center',
+  'place-self-center'
 );
 @each $grid in $grids {
   .#{$grid} {
