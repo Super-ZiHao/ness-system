@@ -1,5 +1,8 @@
 // 原子类
-@import './modules/atomic.scss';
+@import './atomics/index.scss';
 // 滚动条
 @import './modules//scroll.scss';
+// 清除默认样式
+@import './modules/reset';
+
 @import './views/sandbox/NewSandBox.scss';

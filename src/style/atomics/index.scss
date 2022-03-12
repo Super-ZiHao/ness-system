@@ -36,10 +36,21 @@ $flexs: (
 /**
 *========================================================================== 
  * 关于 ———— grid 布局
- * grid-template-columns / grid-template-rows
+ * grid / inline-grid /...
 *==========================================================================
 */
-$grids: ('grid', 'inline-grid');
+$grids: (
+  'grid',
+  'inline-grid',
+  'align-start',
+  'align-center',
+  'align-end',
+  'align-between',
+  'align-around',
+  'justify-items-start',
+  'justify-items-center',
+  'justify-items-end'
+);
 @each $grid in $grids {
   .#{$grid} {
     @extend %#{$grid};
