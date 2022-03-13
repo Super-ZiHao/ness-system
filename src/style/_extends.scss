@@ -1,8 +1,12 @@
+// css 全局变量
+@import './modules/root.scss';
 // 原子类
 @import './atomics/index.scss';
 // 滚动条
 @import './modules//scroll.scss';
 // 清除默认样式
-@import './modules/reset';
+@import './modules/reset.scss';
 
 @import './views/sandbox/NewSandBox.scss';
+// amusing 样式
+@import './views/sandbox/amusing/index.scss';

@@ -8,19 +8,15 @@
 .layout-content {
   background-color: #fff;
   margin: 20px 16px;
-  padding: 24px 24px 4px 24px;
+  padding: 24px;
   border-radius: 10px;
   overflow: auto;
 }
 .logo {
   line-height: 32px;
   color: #fff;
-  background-color: rgba(0,0,0,.3);
+  background-color: rgba(0, 0, 0, 0.3);
   font-size: 18px;
   margin: 10px;
   text-align: center;
-}
-
-.sk {
-  @include skeleton(100%, 400px, 10px, red, blue);
 }

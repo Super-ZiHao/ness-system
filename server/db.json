@@ -41,6 +41,13 @@
       "key": "/publish-manage",
       "pagepermisson": true,
       "title": "发布管理"
+    },
+    {
+      "id": 28,
+      "grade": 1,
+      "key": "/amusing",
+      "pagepermisson": true,
+      "title": "有趣的样式"
     }
   ],
   "children": [
@@ -199,6 +206,22 @@
       "title": "已下载",
       "rightId": 24,
       "key": "/publish-manage/downloaded",
+      "pagepermisson": true,
+      "grade": 2
+    },
+    {
+      "id": 29,
+      "title": "充电特效",
+      "rightId": 28,
+      "key": "/amusing/battery",
+      "pagepermisson": true,
+      "grade": 2
+    },
+    {
+      "id": 30,
+      "title": "纯样式 Swiper",
+      "rightId": 28,
+      "key": "/amusing/swiper",
       "pagepermisson": true,
       "grade": 2
     }

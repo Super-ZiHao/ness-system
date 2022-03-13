@@ -7,6 +7,8 @@ import RightList from '../views/sandbox/right-manage/RightList'
 import RoleList from '../views/sandbox/right-manage/RoleList'
 import UserList from '../views/sandbox/user-manage/UserList'
 import Nopermission from '../views/sandbox/nopermission/Nopermission'
+import Battery from '@/views/sandbox/amusing/Battery'
+import Swiper from '@/views/sandbox/amusing/Swiper'
 
 const RouterConfig = () => {
   const elment = useRoutes([
@@ -41,6 +43,14 @@ const RouterConfig = () => {
         {
           path: '/right-manage/right/list',
           element: <RightList />,
+        },
+        {
+          path: '/amusing/battery',
+          element: <Battery />,
+        },
+        {
+          path: '/amusing/swiper',
+          element: <Swiper />,
         },
         {
           path: '*',

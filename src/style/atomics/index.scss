@@ -60,8 +60,8 @@ $grids: (
   'align-self-end',
   'align-self-stretch',
   'place-content-center',
-  'plac-items-center',
-  'place-self-center'
+  'place-items-center',
+  'place-self-center',
 );
 @each $grid in $grids {
   .#{$grid} {
@@ -128,8 +128,8 @@ $distanceDirection: (
   '': '',
   't': '-top',
   'r': '-right',
-  'b': 'bottom',
-  'l': 'left',
+  'b': '-bottom',
+  'l': '-left',
 );
 $distance: (4, 8, 12, 16, 18, 24, 32);
 @each $key, $value in $distanceDirection {

@@ -13,6 +13,8 @@ import {
   MonitorOutlined,
   ReconciliationOutlined,
   CloudUploadOutlined,
+  ExperimentOutlined,
+  AlertOutlined,
 } from '@ant-design/icons'
 
 const { Sider } = Layout
@@ -28,6 +30,7 @@ const Icons: iconsType = {
   '/news-manage': <MonitorOutlined />,
   '/audit-manage': <ReconciliationOutlined />,
   '/publish-manage': <CloudUploadOutlined />,
+  '/amusing': <ExperimentOutlined />,
 }
 
 const SideMenu = () => {
@@ -56,7 +59,7 @@ const SideMenu = () => {
                 <SubMenu
                   key={item.key}
                   title={item.title}
-                  icon={Icons[item.key]}
+                  icon={Icons[item.key] ? Icons[item.key] : <AlertOutlined />}
                 >
                   {loopSidebar(item.children)}
                 </SubMenu>
@@ -66,7 +69,7 @@ const SideMenu = () => {
                 item.pagepermisson && (
                   <Menu.Item
                     key={item.key}
-                    icon={Icons[item.key]}
+                    icon={Icons[item.key] ? Icons[item.key] : <AlertOutlined />}
                     onClick={() => {
                       navigate(item.key)
                     }}

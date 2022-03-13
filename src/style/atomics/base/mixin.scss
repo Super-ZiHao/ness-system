@@ -16,7 +16,6 @@
   }
 }
 
-
 /**
 *========================================================================== 
  * 关于 ———— 圆角
@@ -80,6 +79,7 @@
 @mixin scroll($width: 4px, $color: #7e9fff, $bg: #ddd) {
   ::-webkit-scrollbar {
     width: $width;
+    height: $width;
   }
   ::-webkit-scrollbar-thumb {
     background-color: $color;
